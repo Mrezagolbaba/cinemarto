@@ -1,0 +1,15 @@
+.rating {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .star {
+    font-size: 2rem;
+    color: #ccc;
+  
+    &.filled {
+      color: #f39c12;
+    }
+  }
+  
