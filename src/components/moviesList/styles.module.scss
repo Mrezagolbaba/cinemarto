@@ -1,71 +1,55 @@
-*{
-    font-family: 'Poppins', sans-serif;
-     -webkit-user-select: none;
-    -moz-user-select: -moz-none;
-    -o-user-select: none;
-    user-select: none;
-}
-img {
-      -webkit-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-}
-img {
-    pointer-events: none;
-}
-.movie_card{
+.movieCard {
     padding: 0 !important;
     width: 15%;
-    margin:14px; 
+    margin: 14px;
     border-radius: 10px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
 }
-.movie_card:hover{
+.movieCard:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
 }
-.movie_card img{
+.movieCard img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 10rem;
     width: 100%;
 }
-.movie_info{
+.movieInfo {
     color: #5e5c5c;
 }
-
-.movie_info i{
+.movieInfo i {
     font-size: 18px;
 }
-.card-title{
+.cardTitle {
     text-align: left;
     padding-left: 5px;
     height: 2rem;
 }
-.card-footer{
+.cardFooter {
     display: flex;
     flex-direction: column;
     padding-left: 5px;
+    align-items: flex-start;
 }
-
-.credits{
+.credits {
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     border: 2px solid #8e24aa;
     font-size: 18px;
 }
-.credits .card-body{
+.credits .cardBody {
     padding: 0;
 }
-.credits p{
+.credits p {
     padding-top: 15px;
     padding-left: 18px;
 }
-.credits .card-body i{
+.credits .cardBody i {
     color: #8e24aa;
 }
-.pagination{
+.pagination {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,76 +57,54 @@ img {
     margin-top: 20px;
 }
 
-
 //mobile
 @media screen and (max-width: 768px) {
-    .movie_card{
+    .movieCard {
         width: 100%;
     }
-    .movie_card img{
+    .cardImgTop {
         height: 20rem;
     }
-    .card-title{
+    .cardTitle {
         height: 3rem;
     }
-    .play_button{
-        width: 50px;
-        height: 50px;
-        right: 10px;
-        bottom: 70px;
-        font-size: 23px;
-        padding-left: 17px;
-        padding-top: 13px;
-    }
-    .credits{
+    .credits {
         font-size: 16px;
     }
-    .credits p{
+    .credits p {
         padding-top: 10px;
         padding-left: 15px;
     }
-    .credits .card-body i{
+    .credits .cardBody i {
         font-size: 16px;
     }
-    .pagination{
+    .pagination {
         margin-top: 10px;
     }
-    
 }
 
 //tablet
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .movie_card{
+    .movieCard {
         width: 45%;
     }
-    .movie_card img{
+    .cardImgTop {
         height: 25rem;
     }
-    .card-title{
+    .cardTitle {
         height: 3rem;
     }
-    .play_button{
-        width: 55px;
-        height: 55px;
-        right: 15px;
-        bottom: 90px;
-        font-size: 25px;
-        padding-left: 19px;
-        padding-top: 14px;
-    }
-    .credits{
+    .credits {
         font-size: 16px;
     }
-    .credits p{
+    .credits p {
         padding-top: 10px;
         padding-left: 15px;
     }
-    .credits .card-body i{
+    .credits .cardBody i {
         font-size: 16px;
     }
-    .pagination{
+    .pagination {
         margin-top: 10px;
     }
-    
 }
