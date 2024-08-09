@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Rating from "../Rating";
+import Rating from "src/components/Rating";
 import styles from './styles.module.scss';
-import { getYear } from "../../helper";
-import IM from '../../assets/bg.jpg';
+import { getYear } from "src/helper";
+import IM from 'src/assets/bg.jpg';
 
 interface CardMovieProps {
     movie: {
@@ -29,7 +29,10 @@ export const CardMovie = ({ movie }: CardMovieProps) => {
                 <h5 className={styles.cardTitle}>{movie.title}</h5>
                 <div className={styles.cardFooter}>
                     <Rating totalStars={movie.vote_average==0?1:movie.vote_average} />
-                    <span className={styles.movieInfo}><i className="fas fa-star"></i> {getYear(movie.release_date)}</span>
+                    <span className={styles.movieInfo}>
+                        <i className="fas fa-star">
+                            </i> {getYear(movie.release_date)}
+                            </span>
                 </div>
             </div>
         </div>
