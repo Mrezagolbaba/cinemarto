@@ -1,3 +1,11 @@
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
 .movieCard {
     padding: 0 !important;
     width: 15%;
@@ -5,33 +13,40 @@
     border-radius: 10px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
 }
+
 .movieCard:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
 }
-.movieCard img{
+
+.movieCard img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 10rem;
     width: 100%;
 }
+
 .movieInfo {
     color: #5e5c5c;
 }
+
 .movieInfo i {
     font-size: 18px;
 }
+
 .cardTitle {
     text-align: left;
     padding-left: 5px;
     height: 2rem;
 }
+
 .cardFooter {
     display: flex;
     flex-direction: column;
     padding-left: 5px;
     align-items: flex-start;
 }
+
 .credits {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -39,16 +54,20 @@
     border: 2px solid #8e24aa;
     font-size: 18px;
 }
+
 .credits .cardBody {
     padding: 0;
 }
+
 .credits p {
     padding-top: 15px;
     padding-left: 18px;
 }
+
 .credits .cardBody i {
     color: #8e24aa;
 }
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -60,24 +79,30 @@
 //mobile
 @media screen and (max-width: 768px) {
     .movieCard {
-        width: 100%;
+        width: 40%;
     }
+
     .cardImgTop {
         height: 20rem;
     }
+
     .cardTitle {
         height: 3rem;
     }
+
     .credits {
         font-size: 16px;
     }
+
     .credits p {
         padding-top: 10px;
         padding-left: 15px;
     }
+
     .credits .cardBody i {
         font-size: 16px;
     }
+
     .pagination {
         margin-top: 10px;
     }
@@ -88,22 +113,28 @@
     .movieCard {
         width: 45%;
     }
+
     .cardImgTop {
         height: 25rem;
     }
+
     .cardTitle {
         height: 3rem;
     }
+
     .credits {
         font-size: 16px;
     }
+
     .credits p {
         padding-top: 10px;
         padding-left: 15px;
     }
+
     .credits .cardBody i {
         font-size: 16px;
     }
+
     .pagination {
         margin-top: 10px;
     }

@@ -1,6 +1,6 @@
 import React from 'react';
-import Pagination from '../pagination';
-import { Movie } from '../../types/movie';
+import Pagination from 'src/components/pagination';
+import { Movie } from 'src/types/movie';
 import { CardMovie } from './CardMovie';
 import styles from './styles.module.scss';
 
@@ -18,19 +18,18 @@ const MoviesList: React.FC<MoviesListProps> = ({ isLoading, error, movies, total
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.toString()}</div>;
-
   return (
     <div>
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
+      <div className={styles.cardContainer}>
         {movies?.map((movie) => (
           <CardMovie key={movie.id} movie={movie} />
         ))}
       </div>
-      <div className={styles.pagination}>
+      {movies && movies?.length > 0 && <div className={styles.pagination}>
         <Pagination currentPage={currentPage} totalPages={totalPages || 1} onPageChange={setPage} />
-      </div>
+      </div>}
     </div>
-      );
+  );
 };
 
-      export default MoviesList;
+export default MoviesList;
