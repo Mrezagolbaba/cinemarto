@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import Search from '../../components/search';
-import Tags from '../../components/tags';
-import MoviesList from '../../components/moviesList';
-import { useGetMoviesListQuery, useSearchMoviesQuery } from '../../services/movies';
-import './styles.module.scss'
-import { useDebounce } from '../../hooks/useDebunce';
+import Search from 'src/components/search';
+import Tags from 'src/components/tags';
+import MoviesList from 'src/components/moviesList';
+import { useGetMoviesListQuery, useSearchMoviesQuery } from 'src/services/movies';
+import { useDebounce } from 'src/hooks/useDebunce';
+import EmptyState from 'src/components/EmptyState';
+
+import styles from './styles.module.scss'
+
 
 const Home: React.FC = () => {
   const [search, setSearch] = useState<string>('');
@@ -15,11 +18,11 @@ const Home: React.FC = () => {
   const { data: searchResults, error: searchError, isLoading: isSearchLoading } = useSearchMoviesQuery(debouncedSearch, {
     skip: !debouncedSearch, // Skip query if debouncedSearch is empty
   });
-
+  
   return (
-    <div className='container'>
+    <div className={styles.container}>
       <Search search={search} setSearch={setSearch} />
-      <Tags />
+      {/* <Tags /> */}
       <MoviesList
         setPage={setPage}
         currentPage={page}
@@ -28,6 +31,7 @@ const Home: React.FC = () => {
         error={debouncedSearch ? searchError : error}
         isLoading={debouncedSearch ? isSearchLoading : isLoading} 
       />
+      {debouncedSearch && searchResults?.results.length === 0 && <EmptyState />}
     </div>
   );
 };
