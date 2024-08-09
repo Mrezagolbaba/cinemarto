@@ -5,12 +5,11 @@
     gap: 10px;
     margin-top: 20px;
   }
-  .pagination-button,
-  .page-number {
+  .paginationButton,
+  .pageNumber {
     padding: 0.5rem 1rem;
     border: none;
     cursor: pointer;
-    background-color: #f0f0f0;
     color: #333;
     font-size: 1rem;
     transition: background-color 0.3s ease;
@@ -21,7 +20,7 @@
   
     &:disabled {
       cursor: not-allowed;
-      background-color: #eee;
+      background-color: #535151;
     }
   
     &.active {

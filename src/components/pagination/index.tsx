@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.module.scss';
+import styles from './styles.module.scss';
 
 interface PaginationProps {
   currentPage: number;
@@ -8,7 +8,7 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
-  const maxPages = 499; // Maximum number of pages to display
+  const maxPages = 499; 
   const effectiveTotalPages = Math.min(totalPages, maxPages);
 
   const handlePrevious = () => {
@@ -29,20 +29,18 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    const visiblePages = 5; // Number of pages to show around the current page
-    const totalVisiblePages = 10; // Total number of pages to display in pagination
+    const visiblePages = 5;
+    const totalVisiblePages = 10; 
 
-    // Determine the start and end pages
     const startPage = Math.max(2, currentPage - Math.floor(visiblePages / 2));
     const endPage = Math.min(effectiveTotalPages - 1, currentPage + Math.floor(visiblePages / 2));
 
     if (effectiveTotalPages <= totalVisiblePages) {
-      // Show all pages if total pages are less than or equal to totalVisiblePages
       for (let i = 1; i <= effectiveTotalPages; i++) {
         pageNumbers.push(
           <button
             key={i}
-            className={`page-number ${i === currentPage ? 'active' : ''}`}
+            className={`${styles.pageNumber} ${i === currentPage ? `${styles.active}` : ''}`}
             onClick={() => handlePageClick(i)}
           >
             {i}
@@ -50,28 +48,25 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         );
       }
     } else {
-      // Show first page
       pageNumbers.push(
         <button
           key={1}
-          className={`page-number ${1 === currentPage ? 'active' : ''}`}
+          className={`${styles.pageNumber} ${1 === currentPage ? `${styles.active}` : ''}`}
           onClick={() => handlePageClick(1)}
         >
           1
         </button>
       );
 
-      // Show dots if startPage is greater than 2
       if (startPage > 2) {
-        pageNumbers.push(<span key="start-dots" className="dots">...</span>);
+        pageNumbers.push(<span key="start-dots" className={styles.dots}>...</span>);
       }
 
-      // Show pages around current page
       for (let i = startPage; i <= endPage; i++) {
         pageNumbers.push(
           <button
             key={i}
-            className={`page-number ${i === currentPage ? 'active' : ''}`}
+            className={`${styles.pageNumber} ${i === currentPage ? `${styles.active}` : ''}`}
             onClick={() => handlePageClick(i)}
           >
             {i}
@@ -79,16 +74,14 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         );
       }
 
-      // Show dots if endPage is less than totalPages - 1
       if (endPage < effectiveTotalPages - 1) {
         pageNumbers.push(<span key="end-dots" className="dots">...</span>);
       }
 
-      // Show last page
       pageNumbers.push(
         <button
           key={effectiveTotalPages}
-          className={`page-number ${effectiveTotalPages === currentPage ? 'active' : ''}`}
+          className={`${styles.pageNumber} ${effectiveTotalPages === currentPage ? 'active' : ''}`}
           onClick={() => handlePageClick(effectiveTotalPages)}
         >
           {effectiveTotalPages}
@@ -100,9 +93,9 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
   };
 
   return (
-    <div className="pagination">
+    <div className={styles.pagination}>
       <button
-        className="pagination-button"
+        className={styles.paginationButton}
         onClick={handlePrevious}
         disabled={currentPage === 1}
       >
@@ -110,7 +103,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
       </button>
       {renderPageNumbers()}
       <button
-        className="pagination-button"
+        className={styles.paginationButton}
         onClick={handleNext}
         disabled={currentPage === effectiveTotalPages}
       >
